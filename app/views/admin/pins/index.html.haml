@@ -1,0 +1,18 @@
+= link_to('New Pin', new_admin_pin_url, class: 'button')
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Summary
+      %th Board
+      %th Action
+  %tbody
+    - @pins.each do |pin|
+      %tr
+        %td= pin.title
+        %td= pin.summary
+        %td= pin.board.try(:name)
+        %td= link_to('Edit', edit_admin_pin_url(pin), class: 'button')
+
+= will_paginate @pins

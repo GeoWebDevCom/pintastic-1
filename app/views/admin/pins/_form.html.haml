@@ -1,0 +1,11 @@
+= simple_form_for @pin, url: [:admin, @pin] do |f|
+  = f.input :title
+
+  - if @pin.image.present?
+    = image_tag @pin.image.url(:thumb)
+
+  = f.input :image, as: :file
+  = f.input :summary
+  = f.input :board_id, collection: Board.pluck(:name, :id)
+  = f.submit
+  = link_to('Cancel', admin_pins_url, class: 'button')

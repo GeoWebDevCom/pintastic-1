@@ -1,0 +1,9 @@
+%table
+  %thead
+    %tr
+      %th Name
+
+  %tbody
+    - @boards.each do |board|
+      %tr
+        %td= board.name

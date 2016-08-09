@@ -1,0 +1,13 @@
+%form
+  -# Creates a search box
+  %input{type: 'text', placeholder: 'Search', name: 'search', value: params[:search]}
+
+- @pins.each do |pin|
+  .pin
+    %h3= pin.title
+    = image_tag pin.image.url(:thumb)
+
+- if user_signed_in?
+  = link_to 'New Board', new_board_url
+- else
+  = link_to 'Sign In', new_user_session_url

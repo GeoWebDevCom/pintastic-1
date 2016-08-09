@@ -1,0 +1,6 @@
+= simple_form_for @board, url: [:admin, @board] do |f|
+  =f.input :name
+  =f.input :slug
+  =f.submit
+
+  = link_to('Cancel', admin_boards_url, class: 'button')

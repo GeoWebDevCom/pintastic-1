@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title Pintastic
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    %script{src: "https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.min.js"}
+
+  %body
+
+    - if user_signed_in?
+      = link_to 'Sign Out', destroy_user_session_url, method: :delete
+    -else
+      = link_to 'Sign In', new_user_session_url
+      = link_to 'Sign Up', new_user_registration_url
+
+    - flash.each do |key, value|
+      .callout= value
+    = yield

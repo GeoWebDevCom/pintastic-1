@@ -1,0 +1,7 @@
+%h2 New Board
+
+= simple_form_for @board, url: [@board] do |f|
+  =f.input :name
+  =f.input :slug
+  =f.submit
+  = link_to('Cancel', boards_url, class: 'button')

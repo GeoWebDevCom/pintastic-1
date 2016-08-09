@@ -1,0 +1,12 @@
+= link_to('New Board', new_admin_board_url)
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Action
+  %tbody
+    - @boards.each do |board|
+      %tr
+        %td= board.name
+        %td= link_to('Edit', edit_admin_board_url(board), class: 'button')

@@ -15,3 +15,6 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore locally uploaded images: We don't want to commit these to github
+/public/system/*
